@@ -56,7 +56,18 @@ $partite=[
             <?php echo $partite[$i]['squadra_ospite_punteggio']; ?> -
             <?php echo $partite[$i]['squadra_di_casa_punteggio']; ?>
         </li>
-       <?php endfor ?>
+       <?php endfor; ?>
    </ul> 
+   <ul>
+       <?php foreach ($partite as $partita) : ?>
+       <li>
+           <?php echo $partita['squadra_ospite']?> -
+           <?php echo $partita['squadra_di_casa']?> |
+           <?php echo $partita['squadra_ospite_punteggio']?> -
+           <?php echo $partita['squadra_di_casa_punteggio']?>
+
+       </li>
+       <?php endforeach ?>
+   </ul>
 </body>
 </html>
