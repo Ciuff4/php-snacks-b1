@@ -31,15 +31,14 @@ $alunni=[
     ]
 ];
 
-function sumVoti($i){
+function sumVoti($voti){
     $sum=0;
-    for ($key=0; $key <count($alunni[$i][voti]) ; $key++) { 
-        $sum+=$alunni[$i][voti][$key];
-        var_dump($sum);
-        echo $sum;
-    }
-    return $sum;
-}
+    foreach ($voti as $voto) { 
+        $sum+=$voto;
+    };
+    $media=ceil($sum / count($voti));
+    return $media;
+};
 
 
     
@@ -55,15 +54,15 @@ function sumVoti($i){
 <body>
     <h4>Registro degli alunni della classe 61:</h4>
     <ul>
-        <?php for ($i=0; $i <count($alunni) ; $i++) : ?>
-            <li>alunno <?php echo $i?>
+        <?php foreach ($alunni as $alunno) : ?>
+            <li>alunno:
                 <ul>
-                    <li>nome: <?php echo $alunni[$i]['nome']?></li>
-                    <li>cognome: <?php echo $alunni[$i]['cognome']?></li>
-                    <li>media voti:<?php echo $alunni[$i]['voti'][sumVoti($i)]?></li>
+                    <li>nome: <?php echo $alunno['nome'];?></li>
+                    <li>cognome: <?php echo $alunno['cognome'];?></li>
+                    <li>media voti:<?php echo sumVoti($alunno['voti'])?></li>
                 </ul>
             </li>
-        <?php endfor ?>
+        <?php endforeach ?>
     </ul>
 </body>
 </html>
